@@ -201,10 +201,9 @@ void MyImage::greyScale() {
     cout << "Filter Greyscale" << endl;
     for (RGB & pixel : pixels)
     {
-        pixel.r = pixel.r * 0.59;
-        pixel.g = pixel.g * 0.59;
-        pixel.b = pixel.b * 0.59;
-
+        pixel.r = 0.3 * pixel.r + 0.59 * pixel.g + 0.11 * pixel.b;
+        pixel.g = 0.3 * pixel.r + 0.59 * pixel.g + 0.11 * pixel.b;
+        pixel.b = 0.3 * pixel.r + 0.59 * pixel.g + 0.11 * pixel.b;
     }
 }
 
@@ -216,6 +215,12 @@ void MyImage::flipVertical() {
 }
 void MyImage::advancedFeature1() {
     cout << "Advanced Feature 1" << endl;
+    for (RGB & pixel : pixels)
+    {
+        pixel.r = -0.3 * pixel.r + -0.59 * pixel.g + -0.11 * pixel.b;
+        pixel.g = -0.3 * pixel.r + -0.59 * pixel.g + -0.11 * pixel.b;
+        pixel.b = -0.3 * pixel.r + -0.59 * pixel.g + -0.11 * pixel.b;
+    }
 }
 void MyImage::advancedFeature2() {
     cout << "Advanced FEature 2" << endl;

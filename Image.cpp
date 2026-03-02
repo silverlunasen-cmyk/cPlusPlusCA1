@@ -209,21 +209,26 @@ void MyImage::greyScale() {
 
 void MyImage::flipHorizontal() {
     cout << "Flip Horizontal" << endl;
+    for (RGB & pixel: pixels)
+    {
+        //reverse pixels
+    }
+
 }
 void MyImage::flipVertical() {
     cout << "Flip Vertical" << endl;
+
+    //reverse the roys
+
 }
 void MyImage::advancedFeature1() {
     cout << "Advanced Feature 1" << endl;
-    for (RGB & pixel : pixels)
-    {
-        pixel.r = -0.3 * pixel.r + -0.59 * pixel.g + -0.11 * pixel.b;
-        pixel.g = -0.3 * pixel.r + -0.59 * pixel.g + -0.11 * pixel.b;
-        pixel.b = -0.3 * pixel.r + -0.59 * pixel.g + -0.11 * pixel.b;
-    }
+
+    //idea 1: mirror
 }
 void MyImage::advancedFeature2() {
     cout << "Advanced FEature 2" << endl;
+    //idea 2:
 }
 void MyImage::advancedFeature3() {
     cout << "Advanced Feature 3" << endl;

@@ -33,9 +33,9 @@ int main()
     buttons.push_back(new Button(font, {660, 180}, {120, 30}, "Grey Scale", [&images, &selectedImage](){images[selectedImage]->greyScale();}));
     buttons.push_back(new Button(font, {660, 220}, {120, 30}, "Flip Horizontal", [&images, &selectedImage](){images[selectedImage]->flipHorizontal();}));
     buttons.push_back(new Button(font, {660, 260}, {120, 30}, "Flip Vertical", [&images, &selectedImage](){images[selectedImage]->flipVertical();}));
-    buttons.push_back(new Button(font, {660, 300}, {120, 30}, "Advanced Feature 1", [&images, &selectedImage](){images[selectedImage]->advancedFeature1();}));
-    buttons.push_back(new Button(font, {660, 340}, {120, 30}, "Advanced Feature 2", [&images, &selectedImage](){images[selectedImage]->advancedFeature2();}));
-    buttons.push_back(new Button(font, {660, 380}, {120, 30}, "Advanced Feature 3", [&images, &selectedImage](){images[selectedImage]->advancedFeature3();}));
+    buttons.push_back(new Button(font, {660, 300}, {120, 30}, "Mirror Image", [&images, &selectedImage](){images[selectedImage]->advancedFeature1();}));
+    buttons.push_back(new Button(font, {660, 340}, {120, 30}, "Unimplemented", [&images, &selectedImage](){images[selectedImage]->advancedFeature2();}));
+    buttons.push_back(new Button(font, {660, 380}, {120, 30}, "Invert Colours", [&images, &selectedImage](){images[selectedImage]->advancedFeature3();}));
     buttons.push_back(new Button(font, {660, 420}, {120, 30}, "Save", [&images, &selectedImage](){images[selectedImage]->save();}));
     buttons.push_back(new Button(font, {660, 420}, {120, 30}, "Save", [&images, &selectedImage](){images[selectedImage]->save();}));
 

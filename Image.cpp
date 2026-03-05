@@ -201,36 +201,85 @@ void MyImage::greyScale() {
     cout << "Filter Greyscale" << endl;
     for (RGB & pixel : pixels)
     {
+
         pixel.r = 0.3 * pixel.r + 0.59 * pixel.g + 0.11 * pixel.b;
         pixel.g = 0.3 * pixel.r + 0.59 * pixel.g + 0.11 * pixel.b;
         pixel.b = 0.3 * pixel.r + 0.59 * pixel.g + 0.11 * pixel.b;
+
     }
 }
 
 void MyImage::flipHorizontal() {
-    cout << "Flip Horizontal" << endl;
-    for (RGB & pixel: pixels)
+    for (int y = 0; y < size.y; y++) {
+        for (int x = 0; x < size.x / 2; x++) {
+
+            int left = y * size.x + x;
+            int right = y * size.x + (size.x - 1 - x);//size.x is the width, -1 is so that it is one less than the width (because arrays work by
+
+            RGB temp = pixels[left];
+            pixels[left] = pixels[right];
+            pixels[right] = temp;
+
+        }
+    }
+}
+void MyImage::flipVertical()
+{
+    cout << "Flip Vertical" << endl;
+    for (int y = 0; y < size.y / 2; y++)
     {
-        //reverse pixels
+        for (int x = 0; x < size.x; x++)
+        {
+            int top = y * size.x + x;
+            int bottom = (size.y - 1 - y) * size.x + x;
+
+            std::swap(pixels[top], pixels[bottom]);//https://cplusplus.com/reference/algorithm/swap/ is where i found it.
+        }
     }
 
 }
-void MyImage::flipVertical() {
-    cout << "Flip Vertical" << endl;
+void MyImage::advancedFeature1()
+{
+    for (int y = 0; y < size.y; y++)
+        {
+        for (int x = 0; x < size.x / 2; x++)
+            {
 
-    //reverse the roys
+            int left = y * size.x + x;
+            int right = y * size.x + (size.x - 1 - x);
+
+            pixels[right].r = pixels[left].r;
+            pixels[right].g = pixels[left].g;
+            pixels[right].b = pixels[left].b;
+
+            }
+        }
 
 }
-void MyImage::advancedFeature1() {
-    cout << "Advanced Feature 1" << endl;
-
-    //idea 1: mirror
-}
-void MyImage::advancedFeature2() {
+void MyImage::advancedFeature2()
+{
     cout << "Advanced FEature 2" << endl;
-    //idea 2:
+    for (RGB &pixel : pixels)
+    {
+        pixel.r = (pixel.r / 100) * 16;
+        pixel.g = (pixel.g / 100) * 16;
+        pixel.b = (pixel.b / 100) * 16;
+    }
 }
 void MyImage::advancedFeature3() {
-    cout << "Advanced Feature 3" << endl;
+    cout << "Advanced Feature 3" << endl;//inverts colours
+
+    {
+
+            for (RGB & pixel : pixels)
+            {
+                pixel.r = pixel.r * -1;
+                pixel.g = pixel.g * -1;
+                pixel.b = pixel.b * -1;
+            }
+    }
+
+
+
 }
 

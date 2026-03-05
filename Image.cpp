@@ -212,11 +212,12 @@ void MyImage::greyScale() {
 }
 
 void MyImage::flipHorizontal() {
-    for (int y = 0; y < size.y; y++) {
-        for (int x = 0; x < size.x / 2; x++) {
+    for (int i = 0; i < size.y; i++) {
+        for (int j = 0; j < size.x / 2; j++)//reason it is x/2 is so that it only goes halfway
+            {
 
-            int left = y * size.x + x;
-            int right = y * size.x + (size.x - 1 - x);//size.x is the width, -1 is so that it is one less than the width and other x is how far in it is.
+            int left = j * size.x + i;
+            int right = i * size.x + (size.x - 1 - j);//size.x is the width, -1 is so that it is one less than the width and j is how far in it is.
 
             RGB temp = pixels[left];
             pixels[left] = pixels[right];
@@ -228,12 +229,12 @@ void MyImage::flipHorizontal() {
 void MyImage::flipVertical()
 {
     cout << "Flip Vertical" << endl;
-    for (int y = 0; y < size.y / 2; y++)
+    for (int j = 0; j < size.y / 2; j++)//like above, but instead of going halfay across it goes top to bottom first.
     {
-        for (int x = 0; x < size.x; x++)
+        for (int i = 0; i < size.x; i++)
         {
-            int top = y * size.x + x;
-            int bottom = (size.y - 1 - y) * size.x + x;
+            int top = j * size.x + i;
+            int bottom = (size.y - 1 - j) * size.x + i;
 
             std::swap(pixels[top], pixels[bottom]);//https://cplusplus.com/reference/algorithm/swap/ is where i found it.
         }
@@ -243,13 +244,13 @@ void MyImage::flipVertical()
 //https://to.imagestool.com/image-to-ppm is the image converter i used.
 void MyImage::advancedFeature1()
 {
-    for (int y = 0; y < size.y; y++)
+    for (int j = 0; j < size.y; j++)
         {
-        for (int x = 0; x < size.x / 2; x++)
+        for (int i = 0; i < size.x / 2; i++)
             {
 
-            int left = y * size.x + x;
-            int right = y * size.x + (size.x - 1 - x);
+            int left = j * size.x + i;
+            int right = j * size.x + (size.x - 1 - i);
 
             pixels[right].r = pixels[left].r;
             pixels[right].g = pixels[left].g;

@@ -201,10 +201,12 @@ void MyImage::greyScale() {
     cout << "Filter Greyscale" << endl;
     for (RGB & pixel : pixels)
     {
+        int greyscale = 0.3 * pixel.r + 0.59 * pixel.g + 0.11 * pixel.b;
 
-        pixel.r = 0.3 * pixel.r + 0.59 * pixel.g + 0.11 * pixel.b;
-        pixel.g = 0.3 * pixel.r + 0.59 * pixel.g + 0.11 * pixel.b;
-        pixel.b = 0.3 * pixel.r + 0.59 * pixel.g + 0.11 * pixel.b;
+        //formula from www.baeldung.com/cs/convert-rgb-to-grayscale
+        pixel.r = greyscale;
+        pixel.g = greyscale;
+        pixel.b = greyscale;
 
     }
 }
@@ -214,7 +216,7 @@ void MyImage::flipHorizontal() {
         for (int x = 0; x < size.x / 2; x++) {
 
             int left = y * size.x + x;
-            int right = y * size.x + (size.x - 1 - x);//size.x is the width, -1 is so that it is one less than the width (because arrays work by
+            int right = y * size.x + (size.x - 1 - x);//size.x is the width, -1 is so that it is one less than the width and other x is how far in it is.
 
             RGB temp = pixels[left];
             pixels[left] = pixels[right];
@@ -238,6 +240,7 @@ void MyImage::flipVertical()
     }
 
 }
+//https://to.imagestool.com/image-to-ppm is the image converter i used.
 void MyImage::advancedFeature1()
 {
     for (int y = 0; y < size.y; y++)
@@ -258,13 +261,7 @@ void MyImage::advancedFeature1()
 }
 void MyImage::advancedFeature2()
 {
-    cout << "Advanced FEature 2" << endl;
-    for (RGB &pixel : pixels)
-    {
-        pixel.r = (pixel.r / 100) * 16;
-        pixel.g = (pixel.g / 100) * 16;
-        pixel.b = (pixel.b / 100) * 16;
-    }
+    cout << "Advanced Feature 2" << endl;//unfortunately i ran out of time for this, i do apologise.
 }
 void MyImage::advancedFeature3() {
     cout << "Advanced Feature 3" << endl;//inverts colours

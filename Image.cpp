@@ -216,7 +216,7 @@ void MyImage::flipHorizontal() {
         for (int j = 0; j < size.x / 2; j++)//reason it is x/2 is so that it only goes halfway
             {
 
-            int left = j * size.x + i;
+            int left = i * size.x + j;
             int right = i * size.x + (size.x - 1 - j);//size.x is the width, -1 is so that it is one less than the width and j is how far in it is.
 
             RGB temp = pixels[left];
@@ -280,4 +280,5 @@ void MyImage::advancedFeature3() {
 
 
 }
+
 
